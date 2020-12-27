@@ -3,9 +3,15 @@ import React, { Component } from 'react';
 import Layout from './hoc/Layout/Layout';
 
 class App extends Component {
+    state = {
+        show: true,
+    }
+
     render() {
         return (
-            <Layout />
+            <div>
+                { this.state.show ? <Layout /> : null}
+            </div>
         );
     }
 }
