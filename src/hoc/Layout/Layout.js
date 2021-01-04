@@ -31,7 +31,7 @@ class Layout extends Component {
                     show={this.state.showSideDrawer}
                     close={this.sideDrawerClosedHandler} />
                 <main className={classes.Content}>
-                    <BurgerBuilder />
+                    {this.props.children}
                 </main>
             </Aux>
         );
