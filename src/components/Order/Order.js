@@ -4,7 +4,9 @@ import classes from './Order.css';
 
 const order = (props) => {
     const ingredientsOutput = Object.keys(props.ingredients).map(igKey => (
-        <span style={{
+        <span
+            key={igKey}
+            style={{
             textTransform: 'capitalize',
             display: 'inline-block',
             margin: '0 8px',
