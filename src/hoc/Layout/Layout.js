@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Aux from '../Aux/Aux';
 import BurgerBuilder from '../../containers/BurgerBuilder/BurgerBuilder';
@@ -26,8 +27,10 @@ class Layout extends Component {
         return (
             <Aux>
                 <Toolbar
+                    isAuthenticated={this.props.isAuthenticated}
                     sideDrawerToggleClicked={this.sideDrawerToggleHandler} />
                 <SideDrawer
+                    isAuthenticated={this.props.isAuthenticated}
                     show={this.state.showSideDrawer}
                     close={this.sideDrawerClosedHandler} />
                 <main className={classes.Content}>
@@ -38,4 +41,10 @@ class Layout extends Component {
     }
 }
 
-export default Layout;
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.token !== null,
+    }
+}
+
+export default connect(mapStateToProps)(Layout);
